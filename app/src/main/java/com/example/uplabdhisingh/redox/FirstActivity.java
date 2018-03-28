@@ -12,6 +12,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FirstActivity extends AppCompatActivity
 {
     TextView nameTextView, ageTextView, genderTextView, trainingTypeTextView, exerciseTypeTextView;
@@ -35,11 +38,18 @@ public class FirstActivity extends AppCompatActivity
 
     public int training_hours;
 
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
+        mFirebaseDatabase=FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference().child("entries");
+
 
         nameTextView=(TextView) findViewById(R.id.tv_name);
         ageTextView=(TextView) findViewById(R.id.tv_age);
@@ -90,7 +100,6 @@ public class FirstActivity extends AppCompatActivity
                 gender = genderRadioButton.getText().toString();
             }
 
-
         mauiRadioButton = (RadioButton) findViewById(R.id.rb_maui);
         jujutsuRadioButton = (RadioButton) findViewById(R.id.rb_jujutsu);
         karateRadioButton = (RadioButton) findViewById(R.id.rb_karate);
@@ -106,10 +115,6 @@ public class FirstActivity extends AppCompatActivity
         footballCheckBox = (CheckBox) findViewById(R.id.cb_football);
         rugbyCheckBox = (CheckBox) findViewById(R.id.cb_rugby);
         danceCheckBox = (CheckBox) findViewById(R.id.cb_dance);
-
-
-
-
 
         if(age.equals("Less than 10")|| age.equals("10-15") || gender.equals("Female"))
         {
@@ -443,6 +448,7 @@ public class FirstActivity extends AppCompatActivity
 
         firstEncodedString+=a+b+c+d+e;
 
+        mDatabaseReference.setValue(firstEncodedString);
         Intent intentToSecondActivity = new Intent(FirstActivity.this,SecondActivity.class);
         startActivity(intentToSecondActivity);
         }

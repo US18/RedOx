@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "40373923844",
+    "firebase_url": "https://red-ox.firebaseio.com",
+    "project_id": "red-ox",
+    "storage_bucket": "red-ox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40373923844:android:84d5e3a2f7ee47dd",
+        "android_client_info": {
+          "package_name": "com.example.uplabdhisingh.redox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40373923844-ori33g2qs7tnvqmqud2ie14gcsd8ldhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDntl16BSe8s4-LAKSZIvjvQcCVkHpg-Ac"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
